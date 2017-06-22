@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_bus_line_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/BaseBlue" >
+
+        <TextView
+            android:id="@+id/tv_bus_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="未知线路 (0站)"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/iv_busline_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/back_btn_selector" />
+
+        <ImageView
+            android:id="@+id/iv_busline_function_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/function_menu_selector" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:id="@+id/rl_list_route_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bus_detail_bg"
+            android:paddingBottom="14dp"
+            android:paddingLeft="18dp"
+            android:paddingRight="16dp"
+            android:paddingTop="14dp" >
+
+            <TextView
+                android:id="@+id/tv_bus_detail_kaiwang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_bus_detail_route"
+                android:text="开往"
+                android:textColor="@color/item_color_1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_bus_detail_route"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/tv_bus_detail_kaiwang"
+                android:singleLine="true"
+                android:text="未知目的地"
+                android:textColor="@color/item_color_1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_bus_detail_fangxiang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_bus_detail_route"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@+id/tv_bus_detail_route"
+                android:text="方向"
+                android:textColor="@color/item_color_1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_bus_detail_route_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_bus_detail_route"
+                android:layout_marginTop="6dp"
+                android:text="时间未知，票价未知"
+                android:textColor="@color/item_color_1"
+                android:textSize="12sp"
+                android:typeface="serif" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_more"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/item_more"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:visibility="gone" >
+
+                    <ImageView
+                        android:id="@+id/iv_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/fav_char" />
+
+                    <TextView
+                        android:id="@+id/tv_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_list"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/list" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:visibility="visible" >
+
+                    <ImageView
+                        android:id="@+id/iv_map"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="@null"
+                        android:src="@drawable/fav_map" />
+
+                    <TextView
+                        android:id="@+id/tv_map"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_map"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/map" />
+                </RelativeLayout>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_line"
+                android:layout_width="0.1dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@color/black" />
+
+            <RelativeLayout
+                android:id="@+id/rl_more_refresh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center" >
+
+                <ImageView
+                    android:id="@+id/iv_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/default_ptr_rotate" />
+
+                <TextView
+                    android:id="@+id/tv_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_refresh"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/refresh" />
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- 地图 -->
+
+        <RelativeLayout
+            android:id="@+id/rl_map_route"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <com.baidu.mapapi.map.MapView
+                android:id="@+id/bmapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true" />
+
+            <RelativeLayout
+                android:id="@+id/ll_map_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true" >
+
+                <ImageView
+                    android:id="@+id/iv_map_locate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:clickable="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/map_locate_selector"
+                    android:visibility="gone" />
+
+                <com.jian.mybus.widget.ZoomControlsView
+                    android:id="@+id/zoomControlsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="15dp"
+                    android:visibility="gone" >
+                </com.jian.mybus.widget.ZoomControlsView>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- 线路列表 -->
+
+        <com.jian.mybus.widget.MultiDirectionSlidingDrawer
+            xmlns:slidingdrawer="http://schemas.android.com/apk/res/com.jian.mybus"
+            android:id="@+id/drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            slidingdrawer:content="@+id/content"
+            slidingdrawer:direction="topToBottom"
+            slidingdrawer:handle="@+id/handle" >
+
+            <RelativeLayout
+                android:id="@id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/item_more"
+                android:layout_above="@+id/iv_r_d_pull_bar" >
+
+                <ListView
+                    android:id="@+id/lv_busdetail_route"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null"
+                    android:overScrollMode="never" >
+                </ListView>
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@id/handle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:src="@drawable/r_d_pull_bar_gray" />
+        </com.jian.mybus.widget.MultiDirectionSlidingDrawer>
+    </FrameLayout>
+
+</LinearLayout>
